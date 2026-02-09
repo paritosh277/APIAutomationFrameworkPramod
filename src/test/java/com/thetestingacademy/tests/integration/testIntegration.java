@@ -20,11 +20,12 @@ public class testIntegration extends BaseTest {
     //Delete the booking
 
     //share data between tests using ITestContext
+    //we are doing bug fix
 
 
     @Test(groups = "integration", priority = 1)
     @Owner("Paritosh")
-    @Description("TC#INT1 - Step1. Verify that the booking can be created")
+    @Description("TC#INT1 - Step1. Verify that the booking can be created easily")
     public void testCreateBooking(ITestContext iTestContext){
 
         //set the token
@@ -66,7 +67,7 @@ public class testIntegration extends BaseTest {
         assertThat(booking.getFirstname()).isNotNull();
         assertThat(booking.getFirstname()).isNotNull().isNotBlank();
         assertThat(booking.getFirstname()).isEqualTo("Jim");
-        System.out.println(bookingId);
+        System.out.println("The booking id is: " + bookingId);
     }
 
     @Test(groups = "integration", priority = 3)
