@@ -13,6 +13,7 @@ import static org.assertj.core.api.Assertions.*;
 
 
 public class testCreateBookingPOST extends BaseTest {
+    //bugfix2 changes
 
 
     @Test
