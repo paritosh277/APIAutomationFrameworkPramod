@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="APIAutomationFrameworkPramod"
+           tests="4"
+           failures="0"
+           errors="0"
+           skipped="0"
+           time="8.395">
+    <properties></properties>
+
+
+
+            <testcase
+                name="testVerifyBookingById"
+                time="1.411"
+                classname="com.thetestingacademy.tests.integration.testIntegration">
+            </testcase>
+            <testcase
+                name="testUpdateBookingById"
+                time="1.428"
+                classname="com.thetestingacademy.tests.integration.testIntegration">
+            </testcase>
+            <testcase
+                name="testCreateBooking"
+                time="4.119"
+                classname="com.thetestingacademy.tests.integration.testIntegration">
+            </testcase>
+            <testcase
+                name="testDeleteBookingById"
+                time="1.437"
+                classname="com.thetestingacademy.tests.integration.testIntegration">
+            </testcase>
+</testsuite>
