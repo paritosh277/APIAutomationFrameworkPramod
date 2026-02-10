@@ -35,8 +35,8 @@ public class testIntegration extends BaseTest {
                 .body(payloadManager.createBookingPayloadAsString())
                 .when().post();
 
-        if(true){
-            System.out.println("Hello");
+        if(false){
+            System.out.println("Bye");
         }
         validatableResponse = response.then().log().all();
         validatableResponse.statusCode(200);
