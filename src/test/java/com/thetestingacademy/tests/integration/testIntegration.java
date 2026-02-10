@@ -21,8 +21,8 @@ public class testIntegration extends BaseTest {
 
     //share data between tests using ITestContext
     //we are doing bug fix
-    //feature5
-
+    //[feature5] - first change
+    //[feature5] - second change
 
     @Test(groups = "integration", priority = 1)
     @Owner("Paritosh")
