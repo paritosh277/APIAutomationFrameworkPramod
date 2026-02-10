@@ -5,6 +5,7 @@ import com.thetestingacademy.endpoints.APIConstants;
 import com.thetestingacademy.modules.PayloadManager;
 import com.thetestingacademy.pojos.Booking;
 import com.thetestingacademy.pojos.BookingResponse;
+import com.thetestingacademy.utils.PropertyReader;
 import io.qameta.allure.Description;
 import io.qameta.allure.Owner;
 import org.testng.ITestContext;
@@ -27,7 +28,7 @@ public class testIntegration extends BaseTest {
     @Test(groups = "integration", priority = 1)
     @Owner("Paritosh")
     @Description("TC#INT1 - Step1. Verify that the booking can be created easily")
-    public void testCreateBooking(ITestContext iTestContext){
+    public void testCreateBooking(ITestContext iTestContext) throws Exception {
 
         //set the token
         iTestContext.setAttribute("token" , getToken());
@@ -35,9 +36,6 @@ public class testIntegration extends BaseTest {
                 .body(payloadManager.createBookingPayloadAsString())
                 .when().post();
 
-        if(false){
-            System.out.println("Bye");
-        }
         validatableResponse = response.then().log().all();
         validatableResponse.statusCode(200);
 
@@ -47,7 +45,8 @@ public class testIntegration extends BaseTest {
         //Assertion
         assertThat(bookingResponse.getBookingid()).isNotNull();
         assertThat(bookingResponse.getBooking().getFirstname()).isNotNull().isNotBlank();
-        assertThat(bookingResponse.getBooking().getFirstname()).isEqualTo("Jim");
+        assertThat(bookingResponse.getBooking().getFirstname()).isEqualTo(PropertyReader.readKey("booking.firstname"));
+        assertThat(bookingResponse.getBooking().getLastname()).isEqualTo(PropertyReader.readKey("booking.lastname"));
 
         //set the booking id
         iTestContext.setAttribute("bookingId", bookingResponse.getBookingid());
@@ -57,7 +56,7 @@ public class testIntegration extends BaseTest {
     @Test(groups = "integration", priority = 2)
     @Owner("Paritosh")
     @Description("TC#INT1 - Step2. Verify that the booking by id")
-    public void testVerifyBookingById(ITestContext iTestContext){
+    public void testVerifyBookingById(ITestContext iTestContext) throws Exception {
         System.out.println(iTestContext.getAttribute("token"));
         String bookingId = iTestContext.getAttribute("bookingId").toString();
         String basepath = APIConstants.CREATE_UPDATE_BOOKING_URL + "/" + bookingId;
@@ -70,7 +69,7 @@ public class testIntegration extends BaseTest {
         //Assertion
         assertThat(booking.getFirstname()).isNotNull();
         assertThat(booking.getFirstname()).isNotNull().isNotBlank();
-        assertThat(booking.getFirstname()).isEqualTo("Jim");
+        assertThat(booking.getFirstname()).isEqualTo(PropertyReader.readKey("booking.firstname"));
         System.out.println("The booking id is: " + bookingId);
     }
 
