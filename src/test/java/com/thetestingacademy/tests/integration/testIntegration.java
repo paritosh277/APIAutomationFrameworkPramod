@@ -91,7 +91,7 @@ public class testIntegration extends BaseTest {
 
     @Test(groups = "integration", priority = 4)
     @Owner("Paritosh")
-    @Description("TC#INT1 - Step4. Delete the booking by id")
+    @Description("TC#INT1 - step four 4. Delete the booking by id")
     public void testDeleteBookingById(ITestContext iTestContext){
         String token = iTestContext.getAttribute("token").toString();
         String bookingId = iTestContext.getAttribute("bookingId").toString();
